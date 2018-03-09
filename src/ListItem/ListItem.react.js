@@ -34,7 +34,7 @@ const propTypes = {
     style: PropTypes.shape({
         container: ViewPropTypes.style,
         contentViewContainer: ViewPropTypes.style,
-        leftElementContainer: ViewPropTypes.style,
+        leftElementContainer: PropTypes.any,
         centerElementContainer: ViewPropTypes.style,
         textViewContainer: ViewPropTypes.style,
         primaryText: Text.propTypes.style,
@@ -43,38 +43,19 @@ const propTypes = {
         secondaryText: Text.propTypes.style,
         tertiaryText: Text.propTypes.style,
         rightElementContainer: ViewPropTypes.style,
-        leftElement: PropTypes.style,
-        rightElement: PropTypes.style,
+        leftElement: PropTypes.any,
+        rightElement: ViewPropTypes.style,
     }),
 
     // left side
-    leftElement: PropTypes.oneOfType([
-        PropTypes.element,
-        PropTypes.string,
-    ]),
+    leftElement: PropTypes.any,
     onLeftElementPress: PropTypes.func,
 
     // center side
-    centerElement: PropTypes.oneOfType([
-        PropTypes.element,
-        PropTypes.string,
-        PropTypes.shape({
-            primaryText: PropTypes.string.isRequired,
-            secondaryText: PropTypes.string,
-            tertiaryText: PropTypes.string,
-        }),
-    ]),
+    centerElement: PropTypes.any,
 
     // right side
-    rightElement: PropTypes.oneOfType([
-        PropTypes.element,
-        PropTypes.string,
-        PropTypes.shape({
-            menu: PropTypes.shape({
-                labels: PropTypes.array.isRequired,
-            }),
-        }),
-    ]),
+    rightElement: PropTypes.any,
     onRightElementPress: PropTypes.func,
     /**
      * Children passed into the `ListItem`.
